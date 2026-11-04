@@ -1,23 +1,17 @@
 package server
 
 import (
-	"fmt"
-	"log/slog"
 	"net/http"
+
+	"github.com/CALEXCO/minisocial/internal/config"
+	"github.com/CALEXCO/minisocial/internal/user"
 )
 
-func Init() {
-	svr := http.DefaultServeMux
-	svr.HandleFunc("/hello", hello)
-
-	if err := http.ListenAndServe(":8080", svr); err != nil {
-		panic(err)
+func Init(conf config.Config, users *user.Handler) error {
+	srv := http.Server{
+		Addr:    conf.HTTPAddr,
+		Handler: routes(users),
 	}
-}
 
-func hello(w http.ResponseWriter, r *http.Request) {
-	log := slog.Default()
-	log.Debug("hello")
-
-	fmt.Fprint(w, "hello world")
+	return srv.ListenAndServe()
 }

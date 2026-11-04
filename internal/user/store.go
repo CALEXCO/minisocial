@@ -9,7 +9,7 @@ type Store interface {
 	Create(ctx context.Context, user *User) (*User, error)
 	GetById(ctx context.Context, id string) (User, error)
 	UpdateName(ctx context.Context, user User) (User, error)
-	Delete(ctx context.Context, id string) error
+	//Delete(ctx context.Context, id string) error
 }
 
 type PostgresStore struct {
@@ -21,15 +21,13 @@ func NewPostgresStore(db *sql.DB) *PostgresStore {
 }
 
 func (s *PostgresStore) Create(ctx context.Context, user *User) (*User, error) {
-	res, err := s.db.Exec("INSERT INTO users (name, email, password) VALUES ($1, $2, $3)", user.Name, user.Mail, user.Password)
+	row := s.db.QueryRow("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id", user.Name, user.Mail, user.Password)
+	var id int
+	err := row.Scan(&id)
 	if err != nil {
 		return nil, err
 	}
-	id, err := res.LastInsertId()
-	if err != nil {
-		return nil, err
-	}
-	user.ID = id
+	user.ID = int64(id)
 	return user, nil
 }
 

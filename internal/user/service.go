@@ -10,8 +10,12 @@ type Service struct {
 	store Store
 }
 
+func NewService(store Store) *Service {
+	return &Service{store: store}
+}
+
 func (s *Service) Create(ctx context.Context, username, email string) (*User, error) {
-	if !strings.Contains("@", email) {
+	if !strings.Contains(email, "@") {
 		return nil, errors.New("invalid email")
 	}
 
@@ -32,6 +36,8 @@ func (s *Service) UpdateName(ctx context.Context, username string) (User, error)
 	return s.store.UpdateName(ctx, u)
 }
 
+/*
 func (s *Service) Delete(ctx context.Context, id string) error {
 	return s.store.Delete(ctx, id)
 }
+*/
