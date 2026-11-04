@@ -1,57 +1,22 @@
 package user
 
 import (
-	"context"
-	"database/sql"
+	"net/http"
 )
 
-type Store interface {
-	Create(ctx context.Context, user User) (User, error)
-	GetById(ctx context.Context, id string) (User, error)
-	UpdateName(ctx context.Context, user User) (User, error)
-	Delete(ctx context.Context, id string) error
+type Handler struct {
+	service *Service
 }
 
-type PostgresStore struct {
-	db *sql.DB
-}
+func (h *Handler) Create(w http.ResponseWriter, r *http.Request) {
 
-func NewPostgresStore(db *sql.DB) *PostgresStore {
-	return &PostgresStore{db: db}
 }
+func (h *Handler) GetById(w http.ResponseWriter, r *http.Request) {
 
-func (s *PostgresStore) Create(ctx context.Context, user User) (User, error) {
-	res, err := s.db.Exec("INSERT INTO users (name, email, password) VALUES ($1, $2, $3)", user.Name, user.Mail, user.Password)
-	if err != nil {
-		return User{}, err
-	}
-	id, err := res.LastInsertId()
-	if err != nil {
-		return User{}, err
-	}
-	user.ID = id
-	return user, nil
 }
+func (h *Handler) UpdateName(w http.ResponseWriter, r *http.Request) {
 
-func (s *PostgresStore) GetById(ctx context.Context, id string) (User, error) {
-	var user User
-	row := s.db.QueryRow("SELECT * FROM users WHERE id = $1", id)
-	err := row.Scan(&user.ID, &user.Name, &user.Mail, &user.Password)
-	if err != nil {
-		return User{}, err
-	}
-	return user, nil
 }
+func (h *Handler) Delete(w http.ResponseWriter, r *http.Request) {
 
-func (s *PostgresStore) UpdateName(ctx context.Context, user User) (User, error) {
-	res, err := s.db.Exec("UPDATE users SET name = $1 WHERE id = $2", user.Name, user.ID)
-	if err != nil {
-		return User{}, err
-	}
-	id, err := res.LastInsertId()
-	if err != nil {
-		return User{}, err
-	}
-	user.ID = id
-	return user, nil
 }
