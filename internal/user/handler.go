@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log/slog"
 	"net/http"
+	"strconv"
 )
 
 type Handler struct {
@@ -36,7 +37,23 @@ func (h *Handler) Create(w http.ResponseWriter, r *http.Request) {
 }
 func (h *Handler) GetById(w http.ResponseWriter, r *http.Request) {
 
+	id, err := strconv.Atoi(r.PathValue("id"))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
+	u, err := h.service.GetById(r.Context(), id)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	if err := json.NewEncoder(w).Encode(u); err != nil {
+		slog.Default().Error("json encode failed", err)
+	}
 }
+
 func (h *Handler) UpdateName(w http.ResponseWriter, r *http.Request) {
 
 }

@@ -7,7 +7,7 @@ import (
 
 type Store interface {
 	Create(ctx context.Context, user *User) (*User, error)
-	GetById(ctx context.Context, id string) (User, error)
+	GetById(ctx context.Context, id int) (User, error)
 	UpdateName(ctx context.Context, user User) (User, error)
 	//Delete(ctx context.Context, id string) error
 }
@@ -31,10 +31,10 @@ func (s *PostgresStore) Create(ctx context.Context, user *User) (*User, error) {
 	return user, nil
 }
 
-func (s *PostgresStore) GetById(ctx context.Context, id string) (User, error) {
+func (s *PostgresStore) GetById(ctx context.Context, id int) (User, error) {
 	var user User
 	row := s.db.QueryRow("SELECT * FROM users WHERE id = $1", id)
-	err := row.Scan(&user.ID, &user.Name, &user.Mail, &user.Password)
+	err := row.Scan(&user.ID, &user.Name, &user.Mail, &user.Password, &user.CreatedAt)
 	if err != nil {
 		return User{}, err
 	}

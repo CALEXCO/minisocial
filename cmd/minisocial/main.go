@@ -29,7 +29,7 @@ func main() {
 	userHandler := user.NewUserHandler(userService)
 	// userStore := user.NewPostgresStore(db)
 	if err := database.Migrate(db); err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	if err := server.Init(conf, userHandler); err != nil {

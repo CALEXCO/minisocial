@@ -25,8 +25,8 @@ func (s *Service) Create(ctx context.Context, username, email string) (*User, er
 	}
 	return s.store.Create(ctx, u)
 }
-func (s *Service) GetById(ctx context.Context, id string) (User, error) {
-	return s.GetById(ctx, id)
+func (s *Service) GetById(ctx context.Context, id int) (User, error) {
+	return s.store.GetById(ctx, id)
 }
 
 func (s *Service) UpdateName(ctx context.Context, username string) (User, error) {

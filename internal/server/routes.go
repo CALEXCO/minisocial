@@ -11,6 +11,7 @@ func routes(users *user.Handler) http.Handler {
 
 	mux.HandleFunc("GET /healthz", healthz)
 	mux.HandleFunc("POST /users", users.Create)
+	mux.HandleFunc("GET /users/{id}", users.GetById)
 
 	return mux
 }
