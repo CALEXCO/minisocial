@@ -40,16 +40,33 @@ func (h *Handler) GetById(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.PathValue("id"))
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	u, err := h.service.GetById(r.Context(), id)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	if err := json.NewEncoder(w).Encode(u); err != nil {
+		slog.Default().Error("json encode failed", err)
+	}
+}
+
+func (h *Handler) GetAll(w http.ResponseWriter, r *http.Request) {
+
+	users, err := h.service.GetAll(r.Context())
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	if err := json.NewEncoder(w).Encode(users); err != nil {
 		slog.Default().Error("json encode failed", err)
 	}
 }

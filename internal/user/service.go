@@ -38,6 +38,11 @@ func (s *Service) UpdateName(ctx context.Context, username string, id int64) (Us
 	return s.store.UpdateName(ctx, u)
 }
 
+func (s *Service) GetAll(ctx context.Context) ([]User, error) {
+
+	return s.store.GetAll(ctx)
+}
+
 /*
 func (s *Service) Delete(ctx context.Context, id string) error {
 	return s.store.Delete(ctx, id)
