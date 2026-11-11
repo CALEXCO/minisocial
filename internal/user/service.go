@@ -29,8 +29,10 @@ func (s *Service) GetById(ctx context.Context, id int) (User, error) {
 	return s.store.GetById(ctx, id)
 }
 
-func (s *Service) UpdateName(ctx context.Context, username string) (User, error) {
+func (s *Service) UpdateName(ctx context.Context, username string, id int64) (User, error) {
+
 	u := User{
+		ID:   id,
 		Name: username,
 	}
 	return s.store.UpdateName(ctx, u)
