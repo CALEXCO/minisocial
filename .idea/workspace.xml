@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e6bfae87-15cd-4306-b429-1a756024b5d4" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+        <option value="Docker Compose" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLinterSelectedExecutable" path="$USER_HOME$/go/bin/golangci-lint" />
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="5.109679370142277E-261" />
+      <entry key="MS500" value="8.743367436947808E-53" />
+      <entry key="S2" value="9.670802937524505E-14" />
+      <entry key="S5" value="6.4125738184751905E-6" />
+      <entry key="S10" value="0.0030692445496237936" />
+      <entry key="S30" value="0.2654744825687495" />
+      <entry key="S60" value="0.8768280754222949" />
+      <entry key="M2" value="1.6191429556061498" />
+      <entry key="M5" value="2.897855465920674" />
+      <entry key="M10" value="7.571690712337521" />
+      <entry key="M15" value="15.681302876819071" />
+      <entry key="M30" value="48.247571071069515" />
+      <entry key="H1" value="115.60683586298205" />
+      <entry key="H2" value="211.6901309593019" />
+      <entry key="H4" value="304.13364033127675" />
+      <entry key="D1" value="425.6524803066704" />
+      <entry key="W1" value="452.34878551558387" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000000001026" />
+      <entry key="S60" value="1.0000006426615082" />
+      <entry key="M2" value="1.0017389713873641" />
+      <entry key="M5" value="1.2792624945352398" />
+      <entry key="M10" value="3.797005230341044" />
+      <entry key="M15" value="8.7982163869995" />
+      <entry key="M30" value="30.669265671056348" />
+      <entry key="H1" value="74.85772258353913" />
+      <entry key="H2" value="132.81437905458262" />
+      <entry key="H4" value="185.2467873612999" />
+      <entry key="D1" value="251.32319098625035" />
+      <entry key="W1" value="265.53350494103665" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.6633972146056336E-38" />
+      <entry key="MS500" value="3.0555344757097763E-8" />
+      <entry key="S2" value="0.013221228071947625" />
+      <entry key="S5" value="0.1772239395190707" />
+      <entry key="S10" value="0.42384633601097454" />
+      <entry key="S30" value="1.0100845745791422" />
+      <entry key="S60" value="1.7350653964856002" />
+      <entry key="M2" value="2.544629208586298" />
+      <entry key="M5" value="4.141577228494714" />
+      <entry key="M10" value="11.339175697520872" />
+      <entry key="M15" value="24.445967146240648" />
+      <entry key="M30" value="78.87022690042582" />
+      <entry key="H1" value="190.40906046537106" />
+      <entry key="H2" value="344.4534035427813" />
+      <entry key="H4" value="489.34351791885837" />
+      <entry key="D1" value="676.967011165101" />
+      <entry key="W1" value="717.8809742167745" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LdVbdZvKgoXZsCKjilIg9CekA7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build github.com/CALEXCO/minisocial/cmd/minisocial.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build minisocial.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build minisocial/cmd.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboardingV2&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoOptimizationToolWindowEnableInLayout.v333333&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.analysis.ui.options.defaults&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.application.removed.from.services&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/Add__Software__Engineer__Reviewer&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aortega/Programming/minisocial&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/aortega/Programming/minisocial/main.go&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/cmd/minisocial" />
+      <recent name="$PROJECT_DIR$/cmd" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build github.com/CALEXCO/minisocial/cmd/minisocial">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="minisocial" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/CALEXCO/minisocial/cmd/minisocial" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="minisocial" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/CALEXCO/minisocial/cmd/minisocial" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/cmd/minisocial" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/CALEXCO/minisocial/internal/server" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="minisocial" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/CALEXCO/minisocial/internal/server" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/internal/server" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build minisocial" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="minisocial" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="minisocial" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build minisocial/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="minisocial" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/CALEXCO/minisocial/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/cmd" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-63c95d513abe-57f1b89dcace-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-263.7307.211" />
+        <option value="bundled-js-predefined-d6986cc7102b-56aff7b04f6f-JavaScript-GO-263.7307.211" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6bfae87-15cd-4306-b429-1a756024b5d4" name="Changes" comment="" />
+      <created>1793784004859</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793784004859</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:podman" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="executable:az" />
+    <option featureType="dependencySupport" implementationName="executable:terraform" />
+    <option featureType="dependencySupport" implementationName="vim:configuration" />
+  </component>
+  <component name="VgoModernizerVersionTracker">
+    <upgrades>
+      <map>
+        <entry key="$PROJECT_DIR$/go.mod">
+          <value>
+            <VersionUpgradeInfo>
+              <version>1.27</version>
+              <timestamp>1793784116391</timestamp>
+            </VersionUpgradeInfo>
+          </value>
+        </entry>
+      </map>
+    </upgrades>
+  </component>
+</project>
