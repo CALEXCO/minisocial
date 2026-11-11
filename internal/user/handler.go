@@ -86,16 +86,13 @@ func (h *Handler) UpdateName(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
-	u, err := h.service.UpdateName(r.Context(), req.Username, int64(id))
+	err = h.service.UpdateName(r.Context(), req.Username, int64(id))
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(u); err != nil {
-		slog.Default().Error("json encode failed", err)
-	}
 
 }
 func (h *Handler) Delete(w http.ResponseWriter, r *http.Request) {

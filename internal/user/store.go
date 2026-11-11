@@ -8,7 +8,7 @@ import (
 type Store interface {
 	Create(ctx context.Context, user *User) (*User, error)
 	GetById(ctx context.Context, id int) (User, error)
-	UpdateName(ctx context.Context, user User) (User, error)
+	UpdateName(ctx context.Context, user User) error
 	GetAll(ctx context.Context) ([]User, error)
 	//Delete(ctx context.Context, id string) error
 }
@@ -65,15 +65,10 @@ func (s *PostgresStore) GetById(ctx context.Context, id int) (User, error) {
 	return user, nil
 }
 
-func (s *PostgresStore) UpdateName(ctx context.Context, user User) (User, error) {
-	res, err := s.db.Exec("UPDATE users SET name = $1 WHERE id = $2", user.Name, user.ID)
+func (s *PostgresStore) UpdateName(ctx context.Context, user User) error {
+	_, err := s.db.Exec("UPDATE users SET name = $1 WHERE id = $2", user.Name, user.ID)
 	if err != nil {
-		return User{}, err
+		return err
 	}
-	id, err := res.LastInsertId()
-	if err != nil {
-		return User{}, err
-	}
-	user.ID = id
-	return user, nil
+	return nil
 }

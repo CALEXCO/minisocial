@@ -29,7 +29,7 @@ func (s *Service) GetById(ctx context.Context, id int) (User, error) {
 	return s.store.GetById(ctx, id)
 }
 
-func (s *Service) UpdateName(ctx context.Context, username string, id int64) (User, error) {
+func (s *Service) UpdateName(ctx context.Context, username string, id int64) error {
 
 	u := User{
 		ID:   id,
