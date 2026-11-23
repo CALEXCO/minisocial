@@ -3,6 +3,7 @@ package user
 import (
 	"context"
 	"database/sql"
+	"errors"
 )
 
 type Store interface {
@@ -66,9 +67,19 @@ func (s *PostgresStore) GetById(ctx context.Context, id int) (User, error) {
 }
 
 func (s *PostgresStore) UpdateName(ctx context.Context, user User) error {
-	_, err := s.db.Exec("UPDATE users SET name = $1 WHERE id = $2", user.Name, user.ID)
+	sqlRes, err := s.db.Exec("UPDATE users SET name = $1 WHERE id = $2", user.Name, user.ID)
 	if err != nil {
 		return err
 	}
+
+	res, err := sqlRes.RowsAffected()
+	if err != nil {
+		return err
+	}
+
+	if res < 1 {
+		return errors.New("user does not exists")
+	}
+
 	return nil
 }

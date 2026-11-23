@@ -27,6 +27,7 @@ func (h *Handler) Create(w http.ResponseWriter, r *http.Request) {
 	u, err := h.service.Create(r.Context(), req.Username, req.Mail)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -91,6 +92,7 @@ func (h *Handler) UpdateName(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		return
 	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 
