@@ -16,3 +16,7 @@ func Migrate(db *sql.DB) error {
 
 	return goose.Up(db, ".")
 }
+
+func Down(db *sql.DB, dir string) error {
+	return goose.Down(db, dir)
+}

@@ -1,57 +1,102 @@
 package user
 
 import (
-	"context"
-	"database/sql"
+	"encoding/json"
+	"log/slog"
+	"net/http"
+	"strconv"
 )
 
-type Store interface {
-	Create(ctx context.Context, user User) (User, error)
-	GetById(ctx context.Context, id string) (User, error)
-	UpdateName(ctx context.Context, user User) (User, error)
-	Delete(ctx context.Context, id string) error
+type Handler struct {
+	service *Service
 }
 
-type PostgresStore struct {
-	db *sql.DB
+func NewUserHandler(service *Service) *Handler {
+	return &Handler{service: service}
 }
 
-func NewPostgresStore(db *sql.DB) *PostgresStore {
-	return &PostgresStore{db: db}
+func (h *Handler) Create(w http.ResponseWriter, r *http.Request) {
+	var req struct {
+		Username string `json:"username"`
+		Mail     string `json:"email"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	u, err := h.service.Create(r.Context(), req.Username, req.Mail)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	if err := json.NewEncoder(w).Encode(u); err != nil {
+		slog.Default().Error("json encode failed", err)
+	}
+}
+func (h *Handler) GetById(w http.ResponseWriter, r *http.Request) {
+
+	id, err := strconv.Atoi(r.PathValue("id"))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	u, err := h.service.GetById(r.Context(), id)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	if err := json.NewEncoder(w).Encode(u); err != nil {
+		slog.Default().Error("json encode failed", err)
+	}
 }
 
-func (s *PostgresStore) Create(ctx context.Context, user User) (User, error) {
-	res, err := s.db.Exec("INSERT INTO users (name, email, password) VALUES ($1, $2, $3)", user.Name, user.Mail, user.Password)
+func (h *Handler) GetAll(w http.ResponseWriter, r *http.Request) {
+
+	users, err := h.service.GetAll(r.Context())
 	if err != nil {
-		return User{}, err
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
-	id, err := res.LastInsertId()
-	if err != nil {
-		return User{}, err
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	if err := json.NewEncoder(w).Encode(users); err != nil {
+		slog.Default().Error("json encode failed", err)
 	}
-	user.ID = id
-	return user, nil
 }
 
-func (s *PostgresStore) GetById(ctx context.Context, id string) (User, error) {
-	var user User
-	row := s.db.QueryRow("SELECT * FROM users WHERE id = $1", id)
-	err := row.Scan(&user.ID, &user.Name, &user.Mail, &user.Password)
-	if err != nil {
-		return User{}, err
+func (h *Handler) UpdateName(w http.ResponseWriter, r *http.Request) {
+	var req struct {
+		Username string `json:"username"`
 	}
-	return user, nil
-}
 
-func (s *PostgresStore) UpdateName(ctx context.Context, user User) (User, error) {
-	res, err := s.db.Exec("UPDATE users SET name = $1 WHERE id = $2", user.Name, user.ID)
-	if err != nil {
-		return User{}, err
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
-	id, err := res.LastInsertId()
+
+	id, err := strconv.Atoi(r.PathValue("id"))
 	if err != nil {
-		return User{}, err
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
-	user.ID = id
-	return user, nil
+
+	err = h.service.UpdateName(r.Context(), req.Username, int64(id))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+
+}
+func (h *Handler) Delete(w http.ResponseWriter, r *http.Request) {
+
 }
